@@ -5,6 +5,7 @@ using UnityEngine;
 public class LookAtMouse : MonoBehaviour {
     
     public float turnSpeed = 1f;
+    public float damping = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -32,9 +33,13 @@ public class LookAtMouse : MonoBehaviour {
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit)) {
 
-            Vector3 targetLocation = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-            
-            transform.LookAt(targetLocation);
+            //Vector3 targetLocation = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            //transform.LookAt(targetLocation);
+
+            Quaternion rotation = Quaternion.FromToRotation(transform.forward, hit.point.normalized - transform.position);
+            rotation.x = 0;
+            rotation.z = 0;
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
         }
 
     }

@@ -16,5 +16,7 @@ public class killScript : MonoBehaviour {
 
     public void kill() {
         Destroy(gameObject);
+
+        GameObject.Find("RabbitsCaughtText").GetComponent<ScoreDisplayerScript>().UpScore(1);
     }
 }

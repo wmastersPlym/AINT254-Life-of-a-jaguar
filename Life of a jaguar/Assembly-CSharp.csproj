@@ -64,13 +64,18 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AttackScript.cs" />
     <Compile Include="Assets\Scripts\killScript.cs" />
+    <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\Scripts\LookAtMouse.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\ScoreDisplayerScript.cs" />
     <Compile Include="Assets\Scripts\SlashScript.cs" />
+    <Compile Include="Assets\Scripts\SpawnerScript.cs" />
     <Compile Include="Assets\Scripts\WanderScript.cs" />
-    <Compile Include="Assets\SpawnerScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -86,6 +91,9 @@
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
@@ -108,20 +116,14 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>C:/Users/wmasters/Documents/github/AINT254-Life-of-a-jaguar/Life of a jaguar/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
