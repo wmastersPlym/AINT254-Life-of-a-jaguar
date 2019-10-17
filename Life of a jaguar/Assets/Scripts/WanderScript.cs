@@ -35,10 +35,10 @@ public class WanderScript : MonoBehaviour {
 
     private void decideWhatToDo() {
         if (Mathf.Floor(Random.Range(0, 2)) == 0) {
-            print("Wonder");
+            //print("Wonder");
             wander();
         } else {
-            print("IDLE");
+            //print("IDLE");
             idle();
         }
     }
