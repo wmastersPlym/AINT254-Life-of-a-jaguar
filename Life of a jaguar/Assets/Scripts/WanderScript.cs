@@ -5,9 +5,11 @@ using UnityEngine;
 public class WanderScript : MonoBehaviour {
 
     public float speed;
+    public float turnSpeed = 100f;
 
     private bool doingSomething = false;
     private bool moveForwards = false;
+    private float turnDirection = 0f;
 
     private Rigidbody rb;
 
@@ -20,6 +22,7 @@ public class WanderScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if(Input.GetKeyDown(KeyCode.K)) {
             print("DoingSomething: " + doingSomething + ", moveForwards: " + moveForwards);
         }
@@ -29,6 +32,7 @@ public class WanderScript : MonoBehaviour {
         }
 
         if(moveForwards) {
+            transform.Rotate(Vector3.up * (turnDirection * turnSpeed * Time.deltaTime));
             rb.velocity = transform.forward * speed;
         }
 	}
@@ -52,6 +56,7 @@ public class WanderScript : MonoBehaviour {
 
     IEnumerator startWander() {
         moveForwards = true;
+        turnDirection = Random.Range(-1f, 2f);
         yield return new WaitForSeconds(randomTime());
         moveForwards = false;
         doingSomething = false;

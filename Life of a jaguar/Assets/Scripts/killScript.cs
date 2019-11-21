@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class killScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public int xpGained;
+    public GameManager gameManager;
+
+    private void Start() {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
+
 
     public void kill() {
         Destroy(gameObject);
 
-        GameObject.Find("RabbitsCaughtText").GetComponent<ScoreDisplayerScript>().UpScore(1);
+        gameManager.GainXP(xpGained);
     }
 }

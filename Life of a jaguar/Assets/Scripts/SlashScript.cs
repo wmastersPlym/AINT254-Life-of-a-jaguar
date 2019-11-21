@@ -27,6 +27,7 @@ public class SlashScript : MonoBehaviour {
         if(preyInTrigger) {
             print("Slashed!");
             preyInTriggerCollider.GetComponent<killScript>().kill();
+            preyInTrigger = false;
         }
 
     }
