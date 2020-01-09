@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene("Prototype");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void mainMenu()
