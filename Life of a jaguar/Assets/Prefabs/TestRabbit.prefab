@@ -503,6 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpGained: 10
+  gameManager: {fileID: 0}
 --- !u!114 &5075165378832653116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +517,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  scaredSpeed: 4
   turnSpeed: 50
+  isScared: 0
 --- !u!1 &5075165379536970893
 GameObject:
   m_ObjectHideFlags: 0

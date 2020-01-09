@@ -5,25 +5,35 @@ using UnityEngine;
 public class WanderScript : MonoBehaviour {
 
     public float speed;
+    public float scaredSpeed;
     public float turnSpeed = 100f;
+    public bool isScared;
 
     private bool doingSomething = false;
     private bool moveForwards = false;
     private float turnDirection = 0f;
+    private GameObject player;
 
     private Rigidbody rb;
 
 
 	// Use this for initialization
 	void Start () {
+        isScared = false;
         doingSomething = false;
         rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if(Input.GetKeyDown(KeyCode.K)) {
+        if (isScared) {
+            moveForwards = true;
+            runAwayFromPlayer();
+        } 
+
+        if (Input.GetKeyDown(KeyCode.K)) {
             print("DoingSomething: " + doingSomething + ", moveForwards: " + moveForwards);
         }
 
@@ -31,10 +41,15 @@ public class WanderScript : MonoBehaviour {
             decideWhatToDo();
         }
 
-        if(moveForwards) {
+        if(moveForwards && !isScared) {
             transform.Rotate(Vector3.up * (turnDirection * turnSpeed * Time.deltaTime));
             rb.velocity = transform.forward * speed;
+        } else if(moveForwards && isScared) {
+            //transform.Rotate(Vector3.up * (turnDirection * turnSpeed * Time.deltaTime));
+            rb.velocity = transform.forward * scaredSpeed;
         }
+
+        
 	}
 
     private void decideWhatToDo() {
@@ -76,5 +91,41 @@ public class WanderScript : MonoBehaviour {
     private float randomTime() {
         return (Random.Range(2, 5));
     }
-    
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag == "Player") {
+            isScared = true;
+
+            doingSomething = true;
+            runAwayFromPlayer();
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.tag == "Player") {
+            StartCoroutine( stopScareAfterSeconds(3f));
+        }
+    }
+
+    public void runAwayFromPlayer() {
+
+        Vector3 direction = transform.position - player.transform.position;
+        transform.rotation = Quaternion.LookRotation(direction);
+
+        /*doingSomething = true;
+        isScared = true;
+        moveForwards = true;
+        while(isScared) {
+            Vector3 direction = transform.position - player.transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
+        moveForwards = false;*/
+    }
+
+    IEnumerator stopScareAfterSeconds(float timeToWait) {
+        yield return new WaitForSeconds(timeToWait);
+        isScared = false;
+        doingSomething = false;
+        moveForwards = false;
+    }
 }
