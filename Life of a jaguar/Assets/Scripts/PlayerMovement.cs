@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     //public float sprintSpeed;
     //public float sneakSpeed;
 
+    public bool isMoving;
+
     public float speed;
     private float currentSpeed;
 
@@ -25,10 +27,13 @@ public class PlayerMovement : MonoBehaviour {
         
         // Moving forward and back
 		if(Input.GetAxisRaw("Vertical") > 0.1) {
+            isMoving = true;
             Move(1f);
         } else if(Input.GetAxisRaw("Vertical") < -0.1) {
+            isMoving = true;
             Move(-0.25f);
         } else {
+            isMoving = false;
             currentSpeed = 0f;
         }
 

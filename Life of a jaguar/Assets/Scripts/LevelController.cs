@@ -28,6 +28,10 @@ public class LevelController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void endGame() {
+        SceneManager.LoadScene("GameOver");
+    }
+
     public void quit()
     {
         Application.Quit();
